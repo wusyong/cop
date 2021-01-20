@@ -1,0 +1,5 @@
+[book]
+title = "COP"
+
+[output.html]
+no-section-label = true
