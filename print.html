@@ -172,6 +172,15 @@
 </ul>
 <h1><a class="header" href="#dfs-approach" id="dfs-approach">DFS Approach</a></h1>
 <p>The initial thought to count all combination is counting all elements of candidates in order. With <code>candidates = [2,3,6,7], target = 7</code>, we would start with [2, 2, ,2 , 2], [2, 2, 3], [2, 2, 6], [2, 3, 3] and so on. This is a common pattern to use DFS.</p>
+<ul>
+<li>Sort the candidate because the description warns us it is in any order.</li>
+<li>DFS usually would run a function recursively, so we define another function <code>dfs</code> and take all inputs with it. We also need a vector to store the <code>result</code> and a vector to record current <code>combination</code>.</li>
+<li>We define another parameter <code>remaing</code> to determine the current remaining value that could add to the <code>combination</code>. The first call of DFS functoin would pass the target value.</li>
+<li>The loop inside the function would iterate the whole <code>candidates</code> everytime since same value can be added repetively. We need to add another condition to make sure <code>remaining</code> is equal or greater than current element value in <code>candidates</code>. Otherwise, we consider this depth branch is done, and we stop the loop to return.</li>
+<li>The loop will push current <code>candidates</code> element value to <code>combination</code> and call the <code>dfs</code> again to proceed to deeper depth. When the call is returned. We pop current <code>candidates</code> element value and iterate to next one.</li>
+<li>To terminate the recursion, we need to add a condition before the loop which determine if the remaining value is zero. If so, that means the <code>combination</code> is right. We push it to <code>result</code> and return.</li>
+<li>After the iteration is done, the <code>result</code> would contain all combinations we need.</li>
+</ul>
 
                     </main>
 
