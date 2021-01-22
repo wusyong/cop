@@ -97,7 +97,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0039-combination-sum.html">0039-combination-sum</a></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="introduction.html">Introduction</a></li><li class="chapter-item expanded "><a href="0039-combination-sum.html">0039-combination-sum</a></li><li class="chapter-item expanded "><a href="0049-group-anagrams.html">0049-group-anagrams</a></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -184,6 +184,19 @@
 <li>To terminate the recursion, we need to add a condition before the loop which determine if the remaining value is zero. If so, that means the <code>combination</code> is right. We push it to <code>result</code> and return.</li>
 <li>After the iteration is done, the <code>result</code> would contain all combinations we need.</li>
 </ul>
+<ul>
+<li>Start Date: 2021-01-20</li>
+<li>URL: <a href="https://leetcode.com/problems/group-anagrams/">Group Anagrams</a></li>
+</ul>
+<h1><a class="header" href="#hashmap-way" id="hashmap-way">HashMap way</a></h1>
+<p>HashMap (HashTable) is a very efficient way to store key/value pairs. Since this problem is trying to group several
+elements together. This data structure is perfect candidate. The key would be the condition we could group them and the
+value would be a vector to append each element. What makes it even better is finding index in HashMap takes O(1), it
+would be extremely efficient to run through to whole process. The final point is determining what key should be.</p>
+<p>We want to group element that have the same amount of character variation. The easiest way could be sorting them, so
+they can all become the same if the variation condition meets. This is the type of key we are looking for and almost all
+languages support sorting strings. We then append each element to the hashMap with corresponding key.</p>
+<p>After we build the HashMap, we just need to iterate it and collect the vector we want and return it.</p>
 
                     </main>
 
